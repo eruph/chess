@@ -1,2 +1,2 @@
 # chess
-swift applicatoion
+swift application
