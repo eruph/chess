@@ -7,23 +7,37 @@ class ViewController: UIViewController {
     @IBOutlet var boardView: BoardView?
     @IBOutlet var whiteToggle: UISegmentedControl?
     @IBOutlet var blackToggle: UISegmentedControl?
-
     @IBOutlet weak var SettingsView: UIView!
-    @IBAction func Settings(_ sender: UIButton) {
+    @IBOutlet weak var ThemesView: UIView!
+    
+    private let maxMovesBeforeStalemate = 30
+    
+    @IBAction func showSettings(_ sender: UIButton) {
         
         SettingsView.isHidden = false
         
     }
-    @IBAction func SettingsDone(_ sender: UIButton) {
+    @IBAction func hideSettings(_ sender: UIButton) {
         
         SettingsView.isHidden = true
         
     }
+    @IBAction func showThemes(_ sender: UIButton) {
+        ThemesView.isHidden = false
+    }
+    @IBAction func hideThemes(_ sender: UIButton) {
+        ThemesView.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         SettingsView.isHidden = true
+        ThemesView.isHidden = true
+        
         SettingsView.layer.cornerRadius = 20
+        ThemesView.layer.cornerRadius = 20
         
         boardView?.delegate = self
         update()
